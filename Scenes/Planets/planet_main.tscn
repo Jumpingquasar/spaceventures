@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://6d8ywwir31kf"]
+
+[ext_resource type="Script" uid="uid://cjw6tr51twgix" path="res://Scenes/Planets/planet_main.gd" id="1_j0a3j"]
+
+[node name="PlanetMain" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_j0a3j")
+
+[node name="DisabledGravityArea" type="Area2D" parent="."]
+collision_layer = 4

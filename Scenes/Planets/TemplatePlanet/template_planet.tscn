@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://n8s0lgsh00td"]
+
+[ext_resource type="PackedScene" uid="uid://6d8ywwir31kf" path="res://Scenes/Planets/planet_main.tscn" id="1_fajde"]
+[ext_resource type="Texture2D" uid="uid://cwce3yva5g46l" path="res://Assets/template.png" id="2_3t3s1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fajde"]
+
+[node name="TemplatePlanet" instance=ExtResource("1_fajde")]
+
+[node name="Template" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_3t3s1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+scale = Vector2(-25.4612, 25.6039)
+shape = SubResource("CircleShape2D_fajde")
+
+[node name="DisabledGravityArea2D" type="CollisionShape2D" parent="DisabledGravityArea" index="0"]
+rotation = -3.14159
+scale = Vector2(28.8678, -29.1469)
+shape = SubResource("CircleShape2D_fajde")
+debug_color = Color(0.959722, 0, 0.520047, 0.42)

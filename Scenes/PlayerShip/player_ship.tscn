@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://br6qaroggq4f"]
+
+[ext_resource type="Script" uid="uid://32kged471xev" path="res://Scenes/PlayerShip/player_ship.gd" id="1_0du58"]
+[ext_resource type="Texture2D" uid="uid://cee3ukx8r7mry" path="res://Assets/Spaceships/ShipTemplate.png" id="2_0du58"]
+[ext_resource type="Texture2D" uid="uid://daenp2qu3kcwn" path="res://Assets/Particles/muzzle_04.png" id="2_j3j64"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vqncs"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+gravity = Vector3(-50, 0, 0)
+radial_accel_min = -29.89
+radial_accel_max = 64.37
+tangential_accel_min = -21.83
+tangential_accel_max = 13.79
+damping_max = 53.448
+scale_min = 0.02
+scale_max = 0.02
+color = Color(0.945098, 0.313726, 0.184314, 0.552941)
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.13
+turbulence_noise_scale = 6.975
+
+[node name="PlayerShip" type="CharacterBody2D" groups=["affected_by_gravity"]]
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_0du58")
+
+[node name="PropulsionMarkers" type="Node2D" parent="."]
+
+[node name="Propulsion1" type="GPUParticles2D" parent="PropulsionMarkers"]
+unique_name_in_owner = true
+position = Vector2(-29, 12)
+emitting = false
+amount = 100
+texture = ExtResource("2_j3j64")
+lifetime = 0.03
+one_shot = true
+explosiveness = 0.1
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_vqncs")
+
+[node name="Propulsion2" type="GPUParticles2D" parent="PropulsionMarkers"]
+unique_name_in_owner = true
+position = Vector2(-29, 11)
+scale = Vector2(-179.98, 93.7417)
+emitting = false
+amount = 10
+texture = ExtResource("2_j3j64")
+lifetime = 0.67
+one_shot = true
+explosiveness = 0.1
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_vqncs")
+
+[node name="Propulsion3" type="GPUParticles2D" parent="PropulsionMarkers"]
+unique_name_in_owner = true
+position = Vector2(-29, -16)
+scale = Vector2(-179.98, 93.7417)
+emitting = false
+amount = 10
+texture = ExtResource("2_j3j64")
+lifetime = 0.67
+one_shot = true
+explosiveness = 0.1
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_vqncs")
+
+[node name="Propulsion4" type="GPUParticles2D" parent="PropulsionMarkers"]
+unique_name_in_owner = true
+position = Vector2(-29, -14)
+scale = Vector2(-179.98, 93.7417)
+emitting = false
+amount = 10
+texture = ExtResource("2_j3j64")
+lifetime = 0.1
+one_shot = true
+explosiveness = 0.1
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_vqncs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(-22.9999, 28.0001, -16.9999, 28.0001, -16.9999, 29.0001, -12.9999, 29, -12.9999, 25, -8.99991, 25, -8.99991, 26, 5.00009, 26, 6.00009, 26, 6.00009, 25, 10.0001, 25, 10.0001, 29, 13.0001, 29, 13.0001, 28, 20.0001, 27.9999, 20.0001, 25.9999, 19.0001, 25.9999, 19.0001, 24.9999, 18.0001, 24.9999, 18.0001, 22.9999, 19.0001, 22.9999, 19.0001, 20.9999, 18.0001, 20.9999, 18.0001, 19.9999, 17.0001, 19.9999, 17.0001, 17.9999, 16.0001, 17.9999, 16.0001, 13.9999, 12.0001, 14, 12, 1.99996, 11, 1.99996, 11, -3.98199e-05, 10, -3.61999e-05, 10, -1.00004, 9, -1.00003, 8.99995, -15, 7.99995, -15, 7.99993, -18, 6.99993, -18, 6.99993, -20, 5.99993, -20, 5.99992, -22, 4.99992, -22, 4.99991, -25, 3.99991, -25, 3.99991, -26, 2.99991, -26, 2.9999, -27, -6.0001, -27, -6.00009, -26, -7.00009, -26, -7.00009, -25, -8.00009, -25, -8.00008, -22, -9.00008, -22, -9.00007, -20, -10.0001, -20, -10.0001, -19, -10.0001, -18, -11.0001, -18, -11.0001, -15, -12.0001, -15, -12, -0.999957, -13, -0.999953, -13, 4.70599e-05, -14, 5.06799e-05, -14, 2.00005, -15, 2.00005, -14.9999, 14.0001, -18.9999, 14.0001, -18.9999, 18.0001, -19.9999, 18.0001, -19.9999, 18.0001, -19.9999, 20.0001, -20.9999, 20.0001, -20.9999, 21.0001, -21.9999, 21.0001, -21.9999, 23.0001, -20.9999, 23.0001, -20.9999, 24.0001, -21.9999, 25.0001, -21.9999, 26.0001, -22.9999, 26.0001)
+
+[node name="ShipTemplate" type="Sprite2D" parent="."]
+texture = ExtResource("2_0du58")

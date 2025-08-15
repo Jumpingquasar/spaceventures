@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://vmofukagaqmr"]
+
+[ext_resource type="PackedScene" uid="uid://br6qaroggq4f" path="res://Scenes/PlayerShip/player_ship.tscn" id="1_xx7cb"]
+[ext_resource type="PackedScene" uid="uid://n8s0lgsh00td" path="res://Scenes/Planets/TemplatePlanet/template_planet.tscn" id="2_yay7x"]
+
+[node name="Space" type="Node2D"]
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_xx7cb")]
+rotation = -1.5708
+
+[node name="Camera2D" type="Camera2D" parent="PlayerShip"]
+zoom = Vector2(0.1, 0.1)
+
+[node name="TemplatePlanet2" parent="." instance=ExtResource("2_yay7x")]
+position = Vector2(-360, -410)
+
+[node name="TemplatePlanet3" parent="." instance=ExtResource("2_yay7x")]
+position = Vector2(574, 23)
